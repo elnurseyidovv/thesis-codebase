@@ -42,7 +42,7 @@ def get_classes_from_file(file_path):
         with open(file_path, 'r', encoding='utf-8') as f:
             content = f.read()
         package_pattern = r'^\s*package\s+([\w\.]+)\s*;'
-        class_pattern = r'^\s*(?:public|private|protected)?\s*class\s+(\w+)\s+'
+        class_pattern = r'^\s*(?:public|private|protected)?\s*(class|interface|enum|@interface)\s+(\w+)\s+'
         package_match = re.search(package_pattern, content, re.MULTILINE)
         package = package_match.group(1) if package_match else ''
         class_matches = re.findall(class_pattern, content, re.MULTILINE)
